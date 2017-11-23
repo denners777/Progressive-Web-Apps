@@ -55,6 +55,10 @@ input {
     padding: 10px 20px;
 }
 
+input[type="submit"] {
+    cursor: pointer;
+}
+
 
 /** muito pequeno **/
 
