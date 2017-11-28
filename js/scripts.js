@@ -35,13 +35,12 @@ let updateList = function() {
             notesTag.removeChild(listOfNotes[index]);
         }
 
-        if (status === 'update') {
+        if (status === 'created') {
             let newLi = document.createElement('li');
             newLi.innerHTML = value;
             notesTag.appendChild(newLi);
         }
-
-
+        console.log(status);
     });
 }
 
@@ -57,6 +56,15 @@ let createNote = function() {
 updateList();
 
 document.addEventListener('DOMContentLoaded', function(event) {
+    let listOfNotes = document.getElementById('notes');
+    let listHtml = '';
+
+    for (let i = 0; i < notes.data.length; i++) {
+        listHtml += '<li>' + notes.data[i] + '</li>';
+    }
+
+    listOfNotes.innerHTML = listHtml
+
     let formAddNotes = document.getElementById('form-add-note');
     formAddNotes.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -66,11 +74,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 document.addEventListener('click', function(e) {
     let notesTag = document.getElementById('notes');
+
     if (e.target.parentElement === notesTag) {
-        if (confirm('Devolver esta nota?')) {
-            let listOfNotes = document.querySelector('#notes li');
+        if (confirm('remover esta nota?')) {
+            let listOfNotes = document.querySelectorAll('#notes li');
             listOfNotes.forEach(function(item, index) {
-                if (e.target == item) {
+                if (e.target === item) {
                     notes.data.splice(index, 1);
                 }
             });
