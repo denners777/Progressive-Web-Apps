@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="/progressive-web-apps/">
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,9 +12,25 @@
 
     <link rel="manifest" href="manifest.json">
 
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBv-tG8YOmui3zAwYSKawmkLytps_V8N_A",
+            authDomain: "progressive-web-apps-207a8.firebaseapp.com",
+            databaseURL: "https://progressive-web-apps-207a8.firebaseio.com",
+            projectId: "progressive-web-apps-207a8",
+            storageBucket: "",
+            messagingSenderId: "659974483591"
+        };
+        firebase.initializeApp(config);
+    </script>
+
     <script src="js/object.observe.polyfill.js"></script>
     <script src="js/array.observe.polyfill.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/push.js"></script>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
